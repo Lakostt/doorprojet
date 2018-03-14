@@ -17,7 +17,7 @@ public class Movement : MonoBehaviour {
 	Animator Anim;
 	CharacterController charCont;
 
-	// Use this for initialization
+	// Initialization
 	void Start () {
 		Anim = GetComponent<Animator> ();
 		charCont = GetComponent<CharacterController> ();

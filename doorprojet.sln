@@ -1,7 +1,7 @@
 ﻿
-Microsoft Visual Studio Solution File, Format Version 11.00
-# Visual Studio 2010
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "doorprojet", "Assembly-CSharp.csproj", "{C8D73310-317D-DB2A-48FC-4FF74AF29E1E}"
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2017
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "doorprojet", "doorprojet.csproj", "{6D2ED624-E397-B669-FB1B-5167E6DB201F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -9,15 +9,12 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{C8D73310-317D-DB2A-48FC-4FF74AF29E1E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{C8D73310-317D-DB2A-48FC-4FF74AF29E1E}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{C8D73310-317D-DB2A-48FC-4FF74AF29E1E}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{C8D73310-317D-DB2A-48FC-4FF74AF29E1E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6D2ED624-E397-B669-FB1B-5167E6DB201F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6D2ED624-E397-B669-FB1B-5167E6DB201F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6D2ED624-E397-B669-FB1B-5167E6DB201F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6D2ED624-E397-B669-FB1B-5167E6DB201F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
-	EndGlobalSection
-	GlobalSection(MonoDevelopProperties) = preSolution
-		StartupItem = Assembly-CSharp.csproj
 	EndGlobalSection
 EndGlobal

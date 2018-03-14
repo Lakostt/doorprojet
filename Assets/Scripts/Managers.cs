@@ -12,7 +12,6 @@ public class Managers : MonoBehaviour {
 
 	private List<IGameManager> _managers;
 
-	// Use this for initialization
 	void Awake () {
 		Player = GetComponent<PlayerManager> ();
 		Inventory = GetComponent<InventoryManager> ();
@@ -44,7 +43,7 @@ public class Managers : MonoBehaviour {
 		}
 		Debug.Log ("All Managers startup..");
 	}
-	// Update is called once per frame
+	// Every frame
 	void Update () {
 		
 	}
