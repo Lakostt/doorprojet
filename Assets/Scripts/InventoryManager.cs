@@ -5,7 +5,18 @@ using UnityEngine;
 public class InventoryManager : MonoBehaviour, IGameManager {
 	public ManagerStatus status { get; private set; }
 	Dictionary<string,int> _items; // Словарь предметов
-
+	public string EquippedItem {get; private set;}
+	public bool EquipItem (string name)
+	{
+		if (_items.ContainsKey (name) && EquippedItem != name) {
+			EquippedItem = name;
+			Debug.Log ("Equipped: " + name);
+			return true;
+		}
+		EquippedItem = null;
+		Debug.Log ("Unequipped");
+		return false;	
+	}
 	public void StartUp()
 	{
 		Debug.Log ("Inventory Manager starting..");

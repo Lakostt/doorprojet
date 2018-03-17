@@ -12,7 +12,6 @@ public class PlayerManager : MonoBehaviour, IGameManager {
 		health = 50;
 		maxHealth = 100;
 		status = ManagerStatus.Started;
-		
 	}
 	public void ChangeHealth(int value)
 	{
