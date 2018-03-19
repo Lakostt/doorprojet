@@ -90,6 +90,7 @@
     <Compile Include="Assets\Scripts\Movement.cs" />
     <Compile Include="Assets\Scripts\PlayerManager.cs" />
     <Compile Include="Assets\Scripts\PlayerRadius.cs" />
+    <Compile Include="Assets\Scripts\UIController.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="GenerateTargetFrameworkMonikerAttribute" />
