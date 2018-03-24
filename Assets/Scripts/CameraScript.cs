@@ -6,6 +6,7 @@ public class CameraScript : MonoBehaviour {
 	[SerializeField] Transform target;
 	public float rotSpeed = 1.5f;
 	float rotY;
+	float rotX;
 	Vector3 offset;
 
 	// Use this for initialization
@@ -22,8 +23,9 @@ public class CameraScript : MonoBehaviour {
 		}
 			else
 			rotY += Input.GetAxis ("Mouse X") * rotSpeed * 3;
+			rotX += Input.GetAxis ("Mouse Y") * rotSpeed * 3;
 		
-		Quaternion rotation = Quaternion.Euler (0, rotY, 0);
+		Quaternion rotation = Quaternion.Euler (rotX, rotY, 0);
 		transform.position = target.position - (rotation * offset);
 		transform.LookAt (target);
 	}

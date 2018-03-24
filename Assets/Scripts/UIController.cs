@@ -32,18 +32,16 @@ public class UIController : MonoBehaviour {
 		posY += height + offset;
 		foreach(string item in items)
 		{
-			if (GUI.Button (new Rect (posX, posY, width, height), "Equip " + item)) {
-				Managers.Inventory.EquipItem (item);
+			if (item != "Health") {
+				if (GUI.Button (new Rect (posX, posY, width, height), "Equip " + item)) {
+					Managers.Inventory.EquipItem (item);
+					Managers.Player.ChangeHealth (25);
+				}
+			} else {
+				if (GUI.Button (new Rect (posX, posY, width, height), "Use " + item)) {
+					Managers.Inventory.UsingItem (item);
+				}
 			}
-            // Хилка
-            if (item == "Health")
-            {
-                if (GUI.Button(new Rect(posX, posY + offset * 4, width, height), "Use Health"))
-                {
-                    Managers.Inventory.UsingItem("Health");
-                    Managers.Player.ChangeHealth(25);
-                }
-            }
 
             posX += width + offset;
 

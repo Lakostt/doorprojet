@@ -19,7 +19,7 @@ public class InventoryManager : MonoBehaviour, IGameManager {
 	}
     public bool UsingItem(string name)
         {
-        if(_items.ContainsKey(name))
+		if(_items.ContainsKey(name))
         {
             _items[name]--;
             if(_items[name] == 0)
@@ -35,7 +35,7 @@ public class InventoryManager : MonoBehaviour, IGameManager {
         DisplayItems();
             return true;
     }
-	public void StartUp()
+	public void StartUp(NetworkService serivce)
 	{
 		Debug.Log ("Inventory Manager starting..");
 		status = ManagerStatus.Started;

@@ -1,4 +1,4 @@
 ﻿public interface IGameManager {
 	ManagerStatus status { get; }
-	void StartUp (); // Описать в классе
+	void StartUp (NetworkService service); // Описать в классе
 }
