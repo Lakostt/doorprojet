@@ -17,4 +17,4 @@ public class WeatherManager : MonoBehaviour, IGameManager {
 		Debug.Log (data);
 		status = ManagerStatus.Started;
 	}
-}
+}	
