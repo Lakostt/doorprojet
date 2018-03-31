@@ -6,7 +6,8 @@ public class PlayerManager : MonoBehaviour, IGameManager {
 	public ManagerStatus status { get; private set;}
 	public int health { get; private set;}
 	public int maxHealth { get; private set; }
-	public void StartUp(NetworkService serviceaaaaaaaaaaaa)
+
+	public void StartUp(NetworkService service)
 	{
 		Debug.Log ("Player manager starting..");
 		health = 50;

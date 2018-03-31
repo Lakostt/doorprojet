@@ -27,7 +27,7 @@ public class Managers : MonoBehaviour {
 	{
 		NetworkService network = new NetworkService ();
 		foreach (IGameManager manager in _managers) {
-			manager.StartUp (network9);
+			manager.StartUp (network);
 		}
 		yield return null;
 		int numModules = _managers.Count;

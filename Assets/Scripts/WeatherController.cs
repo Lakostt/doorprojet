@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class WeatherController : MonoBehaviour {
+public class WeatherController : MonoBehaviour{
 	[SerializeField] Material sky;
 	[SerializeField] Light sun;
 	float FullIntensity;
@@ -15,16 +15,18 @@ public class WeatherController : MonoBehaviour {
 		sun.intensity = (FullIntensity * value);
 	}
 
+	void Awake()
+	{
+		Messenger<float>.AddListener (GameEvent.WEATHER_UPDATED,SetClouds);
+	}
+
 	void Start () {
 		FullIntensity = sun.intensity;
 			
 	}
 
 	void Update () {
-		CloudValue += step;
-		SetClouds (CloudValue);
-		if (CloudValue >= 1 || CloudValue <= 0) {
-			step *= -1;
-		}
+
+
 		}
 	}

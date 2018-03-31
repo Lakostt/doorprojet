@@ -16,13 +16,18 @@ public class NetworkService : MonoBehaviour {
 		} else
 			return true;
 	}
-	public IEnumerator GetXML(Action<string> callback)
-	{
-		WWW www = new WWW (xmlApi);
+	IEnumerator CallAPI(string url,Action<string> callback) {
+		WWW www = new WWW (url);
+		yield return www;
 		if(!IsResponce(www))
 		{
 			yield break;
 		}
 		callback (www.text);
+	}
+
+	public IEnumerator GetXML(Action<string> callback)
+	{
+		return CallAPI (xmlApi, callback);
 	}
 }
