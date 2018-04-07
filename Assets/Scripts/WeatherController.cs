@@ -13,6 +13,12 @@ public class WeatherController : MonoBehaviour{
 	{
 		sky.SetFloat ("_Blend", value);
 		sun.intensity = (FullIntensity * value);
+		if (Managers.Weather.tCur < Managers.Weather.tMax) {
+			sun.intensity = ((Managers.Weather.tCur -= Managers.Weather.SunRise) / (Managers.Weather.tMax - Managers.Weather.tMax)) * FullIntensity;
+		}
+		if (Managers.Weather.tCur > Managers.Weather.tMax) {
+			sun.intensity = ((Managers.Weather.SunSet -= Managers.Weather.tCur) / (Managers.Weather.SunSet -= Managers.Weather.tMax)) * FullIntensity;
+		}
 	}
 
 	void Awake()
@@ -22,7 +28,6 @@ public class WeatherController : MonoBehaviour{
 
 	void Start () {
 		FullIntensity = sun.intensity;
-			
 	}
 
 	void Update () {
