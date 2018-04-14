@@ -3,20 +3,19 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 using System.Xml;
+using MiniJSON;
 
 public class WeatherManager : MonoBehaviour, IGameManager {
 	public ManagerStatus status { get ; private set; }
 	public float CloudValue { get; private set; }
-	public int SunRise { get; private set; }
-	public int SunSet { get; private set; }
-	public float tMax {get; private set; }
-	public int tCur { get; private set; }
+	public float SunRise;
+	public float SunSet;
 	NetworkService network;
 	public void StartUp(NetworkService service)
 	{
 		Debug.Log ("Weather Managers starting...");
 		network = service;
-		StartCoroutine (network.GetXML(OnXMLData));
+		StartCoroutine (network.GetJSON(OnJSONData));
 		status = ManagerStatus.Started;
 	}
 	public void OnXMLData(string data)
@@ -33,22 +32,42 @@ public class WeatherManager : MonoBehaviour, IGameManager {
 		int rrset = int.Parse(rset.Substring (11,2));
 		rrise += 3;
 		rrset += 3;
-		int tcur = DateTime.Now.Hour * 60;
-		tcur += DateTime.Now.Minute;
-		int tmax = (rrset - rrise) / 2;
 		// Public
 		SunRise = rrise;
 		SunSet = rrset;
-		tMax = tmax;
-		tCur = tcur;
-		Debug.Log (rrise);
-		Debug.Log (rrset);
-		Debug.Log (tcur);
+
+		// ;
 		string clouds = node.Attributes ["value"].Value;
 		CloudValue = int.Parse (clouds) / 100f;
 		Messenger<float> .Broadcast (GameEvent.WEATHER_UPDATED,CloudValue);
 	
+		status = ManagerStatus.Started;
+	}
 
+	public void OnJSONData(string data)
+
+	{
+		Dictionary<string,object> dict;
+		dict = Json.Deserialize(data) as Dictionary<string,object>;	
+		Dictionary<string,object> clouds = (Dictionary<string,object>) dict["clouds"];
+		CloudValue = (long)clouds ["all"] / 100f;
+		Debug.Log (CloudValue);
+
+		Dictionary<string,object> sys = (Dictionary<string,object>) dict["sys"];
+		double SunRiseD = (long)sys ["sunrise"];
+		double SunSetD = (long)sys ["sunset"];
+
+		DateTime timeRise = new DateTime (1970, 1, 1, 0, 0, 0);
+		timeRise = timeRise.AddSeconds(SunRiseD);
+		timeRise = timeRise.AddHours (3);
+		DateTime timeSet = new DateTime(1970, 1, 1, 0, 0, 0);
+		timeSet = timeSet.AddSeconds (SunSetD);
+		timeSet = timeSet.AddHours (3);
+
+		SunRise = timeRise.Hour * 60 + timeRise.Minute;
+		SunSet = timeSet.Hour * 60 + timeSet.Minute;
+
+		Messenger<float> .Broadcast (GameEvent.WEATHER_UPDATED,CloudValue);
 		status = ManagerStatus.Started;
 	}
 }	

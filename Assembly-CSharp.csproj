@@ -57,6 +57,7 @@
      <Compile Include="Assets\Scripts\ManagerStatus.cs" />
      <Compile Include="Assets\Scripts\Managers.cs" />
      <Compile Include="Assets\Scripts\Messenger.cs" />
+     <Compile Include="Assets\Scripts\MiniJSON.cs" />
      <Compile Include="Assets\Scripts\Movement.cs" />
      <Compile Include="Assets\Scripts\NetworkService.cs" />
      <Compile Include="Assets\Scripts\PlayerManager.cs" />

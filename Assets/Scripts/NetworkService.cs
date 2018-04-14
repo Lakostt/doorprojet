@@ -5,6 +5,7 @@ using System;
 
 public class NetworkService : MonoBehaviour {
 	const string xmlApi = "http://api.openweathermap.org/data/2.5/weather?id=524901&mode=xml&appid=8ed04e8d1fdd73ab1ee0e1eda30ee4b4";
+	const string JsonApi = "http://api.openweathermap.org/data/2.5/weather?id=524901&appid=8ed04e8d1fdd73ab1ee0e1eda30ee4b4";	
 	bool IsResponce(WWW www)
 	{
 		if (www.error != null) {
@@ -29,5 +30,10 @@ public class NetworkService : MonoBehaviour {
 	public IEnumerator GetXML(Action<string> callback)
 	{
 		return CallAPI (xmlApi, callback);
+	}
+
+	public IEnumerator GetJSON(Action<string> callback)
+	{
+		return CallAPI (JsonApi, callback);
 	}
 }

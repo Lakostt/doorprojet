@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class WeatherController : MonoBehaviour{
 	[SerializeField] Material sky;
@@ -12,12 +13,13 @@ public class WeatherController : MonoBehaviour{
 	void SetClouds(float value)
 	{
 		sky.SetFloat ("_Blend", value);
-		sun.intensity = (FullIntensity * value);
-		if (Managers.Weather.tCur < Managers.Weather.tMax) {
-			sun.intensity = ((Managers.Weather.tCur -= Managers.Weather.SunRise) / (Managers.Weather.tMax - Managers.Weather.tMax)) * FullIntensity;
+		float max = (Managers.Weather.SunRise + Managers.Weather.SunSet) / 2f;
+		float cur = DateTime.Now.Hour * 60 + DateTime.Now.Minute;
+		if (cur < max) {
+			sun.intensity = ((cur - Managers.Weather.SunRise) / (max - Managers.Weather.SunRise)) * FullIntensity;
 		}
-		if (Managers.Weather.tCur > Managers.Weather.tMax) {
-			sun.intensity = ((Managers.Weather.SunSet -= Managers.Weather.tCur) / (Managers.Weather.SunSet -= Managers.Weather.tMax)) * FullIntensity;
+		else {      
+			sun.intensity = ((Managers.Weather.SunSet - cur) / (Managers.Weather.SunSet - max)) * FullIntensity;
 		}
 	}
 
@@ -27,7 +29,7 @@ public class WeatherController : MonoBehaviour{
 	}
 
 	void Start () {
-		FullIntensity = sun.intensity;
+		FullIntensity = sun.intensity; 
 	}
 
 	void Update () {
