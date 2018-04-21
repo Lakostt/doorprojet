@@ -12,7 +12,6 @@ namespace MiniJSON {
 			if (json == null) {
 				return null;
 			}
-
 			return Parser.Parse(json);
 		}
 

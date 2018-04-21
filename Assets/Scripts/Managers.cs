@@ -10,6 +10,7 @@ public class Managers : MonoBehaviour {
 	public static PlayerManager Player { get; private set; }
 	public static InventoryManager Inventory { get; private set; }
 	public static WeatherManager Weather { get; private set; }
+	public static ImagesManager Images {get; private set;}
 
 	private List<IGameManager> _managers;
 
@@ -17,10 +18,12 @@ public class Managers : MonoBehaviour {
 		Player = GetComponent<PlayerManager> ();
 		Inventory = GetComponent<InventoryManager> ();
 		Weather = GetComponent<WeatherManager> ();
+		Images = GetComponent<ImagesManager> ();
 		_managers = new List<IGameManager> ();
 		_managers.Add (Player);
 		_managers.Add (Inventory);
 		_managers.Add (Weather);
+		_managers.Add (Images);
 		StartCoroutine (StartManagers());
 	}
 	private IEnumerator StartManagers()

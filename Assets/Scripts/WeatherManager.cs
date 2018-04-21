@@ -10,6 +10,7 @@ public class WeatherManager : MonoBehaviour, IGameManager {
 	public float CloudValue { get; private set; }
 	public float SunRise;
 	public float SunSet;
+	public string Abbr { get; private set; }
 	NetworkService network;
 	public void StartUp(NetworkService service)
 	{
@@ -36,7 +37,6 @@ public class WeatherManager : MonoBehaviour, IGameManager {
 		SunRise = rrise;
 		SunSet = rrset;
 
-		// ;
 		string clouds = node.Attributes ["value"].Value;
 		CloudValue = int.Parse (clouds) / 100f;
 		Messenger<float> .Broadcast (GameEvent.WEATHER_UPDATED,CloudValue);
@@ -56,6 +56,9 @@ public class WeatherManager : MonoBehaviour, IGameManager {
 		Dictionary<string,object> sys = (Dictionary<string,object>) dict["sys"];
 		double SunRiseD = (long)sys ["sunrise"];
 		double SunSetD = (long)sys ["sunset"];
+
+		Abbr = (string)sys ["country"];
+		Debug.Log (Abbr);
 
 		DateTime timeRise = new DateTime (1970, 1, 1, 0, 0, 0);
 		timeRise = timeRise.AddSeconds(SunRiseD);
