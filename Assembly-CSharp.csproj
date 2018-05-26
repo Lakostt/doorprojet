@@ -48,6 +48,7 @@
   <ItemGroup>
      <Compile Include="Assets\Scripts\BannerScript.cs" />
      <Compile Include="Assets\Scripts\CameraScript.cs" />
+     <Compile Include="Assets\Scripts\ClickMovement.cs" />
      <Compile Include="Assets\Scripts\CollectibleItem.cs" />
      <Compile Include="Assets\Scripts\ColorController.cs" />
      <Compile Include="Assets\Scripts\DeviceScript.cs" />
@@ -69,6 +70,7 @@
      <Compile Include="Assets\Scripts\WeatherController.cs" />
      <Compile Include="Assets\Scripts\WeatherManager.cs" />
      <None Include="Assets\Для проекта\SkyboxBlended.shader" />
+     <None Include="Assets\Skeleton\animations.txt" />
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>

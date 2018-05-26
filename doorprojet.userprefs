@@ -1,14 +1,8 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\NetworkService.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\ClickMovement.cs">
     <Files>
-      <File FileName="Assets\Scripts\Managers.cs" Line="33" Column="1" />
-      <File FileName="Assets\Scripts\WeatherController.cs" Line="22" Column="85" />
-      <File FileName="Assets\Scripts\WeatherManager.cs" Line="60" Column="19" />
-      <File FileName="Assets\Scripts\NetworkService.cs" Line="51" Column="3" />
-      <File FileName="Assets\Scripts\MiniJSON.cs" Line="17" Column="3" />
-      <File FileName="Assets\Scripts\ImagesManager.cs" Line="5" Column="16" />
-      <File FileName="Assets\Scripts\BannerScript.cs" Line="9" Column="41" />
+      <File FileName="Assets\Scripts\ClickMovement.cs" Line="35" Column="154" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
